@@ -45,7 +45,7 @@ npm --version
 
 Pour pouvoir publier ton projet sur github pages:
 
-- Tu dois créer un repo github avec ton nom d'utilisateur et rajouter '.github.io'. Par exemple pour Theodo, il faut créer le repo : `theodo.github.io`.
+- Tu dois simplement créer un repo git.
 - N'initialise pas ton repo, récupère juste l'origine git.
 - Utilise ce boilerplate: `npx degit theodo/dojo-escape-game <nom-de-ton-repo>` et rends toi dans le dossier `cd <nom-de-ton-repo>`.
 - Initialise ton repo git:
@@ -53,7 +53,7 @@ Pour pouvoir publier ton projet sur github pages:
 ```bash
 git init
 # Identifie toi à git si nécessaire https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup
-git remote add origin https://github.com/<user>/<user>.github.io.git # ou en ssh : git remote add origin git@github.com:<user>/<user>.github.io.git
+git remote add origin https://github.com/<user>/<nom-de-ton-repo>.git # ou en ssh : git remote add origin git@github.com:<user>/<nom-de-ton-repo>.git
 git add .
 git commit -m "initial commit"
 git push
@@ -65,7 +65,7 @@ Pour finir, il faut configurer githubpages pour utiliser le dossier `dist/` du r
 
 On va utiliser une branche spécifique `gh-pages`, utilise `npm run deploy` pour synchroniser le dossier _dist_ sur la branche `gh-pages`.
 
-Le boilerplate devrait être disponible sur `https://<user>.github.io/` d'ici maximum 10min pour le premier déploiement.
+Le boilerplate devrait être disponible sur `https://<user>.github.io/<nom-de-ton-repo>` d'ici maximum 10min pour le premier déploiement.
 
 ### Développer
 
