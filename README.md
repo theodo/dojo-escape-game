@@ -1,5 +1,4 @@
-Dojo Escape Game
-===
+# Dojo Escape Game
 
 - Installation de Node (JeremieC)
 - Boilerplate avec hot reload (JeremieC)
@@ -9,6 +8,7 @@ Dojo Escape Game
 - Classe Salle abstraite
 
 Criteres qu'on veut voir:
+
 - Avoir une carte qui montre les possibilités de deplacement (carte en canvas)
 - Inventaire perso
 - Objets dans la salle
@@ -20,4 +20,5 @@ Criteres qu'on veut voir:
 Criteres techniques:
 
 Des choses qu'on aimerait voir:
+
 - A vous de voir ...
