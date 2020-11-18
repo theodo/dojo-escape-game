@@ -63,7 +63,7 @@ git push
 
 Pour finir, il faut configurer githubpages pour utiliser le dossier `dist/` du repo git, que l'on commitera lorsque l'on veut faire une version de la page web.
 
-Pour ce faire, [il suffit de suivre la documentation github pour changer le dossier de _root_ à *dist*](https://docs.github.com/en/free-pro-team@latest/github/working-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)
+On va utiliser une branche spécifique `gh-pages`, utilise `npm run deploy` pour synchroniser le dossier _dist_ sur la branche `gh-pages`.
 
 Le boilerplate devrait être disponible sur `https://<user>.github.io/` d'ici maximum 10min pour le premier déploiement.
 
@@ -91,4 +91,10 @@ Une fois qu'une version locale est satisfaisante, il suffit de lancer :
 npm run build
 ```
 
-Le site va alors être généré et il suffit alors de commit les changements (en incluant dist) et de les pousser sur github pour mettre à jour le site en ligne 🎉
+Le site va alors être généré et il suffit alors de commit les changements (en incluant dist) et de les pousser sur github pour mettre à jour le site en ligne 🎉 :
+
+```bash
+git add dist && git commit && npm run deploy
+```
+
+Ainsi la branche _gh-pages_ est reconnu automatiquement par github et servira de source pour servir le site.
