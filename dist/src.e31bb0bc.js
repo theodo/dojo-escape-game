@@ -117,9 +117,199 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"index.js":[function(require,module,exports) {
+})({"Game/Room.js":[function(require,module,exports) {
+"use strict";
 
-},{}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.Room = void 0;
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var Room = /*#__PURE__*/function () {
+  /**
+   * @type {{room: Room, validator: () => string}[]}
+   */
+  function Room(name) {
+    _classCallCheck(this, Room);
+
+    _defineProperty(this, "roomConnections", []);
+
+    /**
+     * @type {string}
+     */
+    this.name = name;
+  }
+
+  _createClass(Room, [{
+    key: "addConnection",
+    value: function addConnection(room, validator) {
+      this.roomConnections.push({
+        room: room,
+        validator: validator
+      });
+    }
+  }]);
+
+  return Room;
+}();
+
+exports.Room = Room;
+},{}],"Game/Player.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.Player = void 0;
+
+var _Room = require("./Room");
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+/**
+ * 
+ */
+var Player = /*#__PURE__*/function () {
+  function Player(room) {
+    _classCallCheck(this, Player);
+
+    /**
+     * @type {Room} the room where the player is
+     */
+    this.currentRoom = room;
+  }
+  /**
+   * Move to another room
+   * @param {Room} wantedRoom  
+   */
+
+
+  _createClass(Player, [{
+    key: "move",
+    value: function move(wantedRoom) {
+      var roomConnection = this.currentRoom.roomConnections.find(function (connection) {
+        return connection.room === wantedRoom;
+      });
+
+      if (roomConnection === undefined) {
+        throw 'The room you want is not in the good range';
+      }
+
+      try {
+        var message = roomConnection.validator();
+        this.currentRoom = roomConnection.room;
+        return message;
+      } catch (error) {
+        return error;
+      }
+    }
+  }]);
+
+  return Player;
+}();
+
+exports.Player = Player;
+},{"./Room":"Game/Room.js"}],"Game/World.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.World = void 0;
+
+var _Player = require("./Player");
+
+var _Room = require("./Room");
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var World = /*#__PURE__*/function () {
+  /**
+   * @type {Room[]}
+   */
+
+  /**
+   * @type {Player | undefined}
+   */
+  function World(name) {
+    _classCallCheck(this, World);
+
+    _defineProperty(this, "rooms", []);
+
+    _defineProperty(this, "player", undefined);
+
+    this.name = name;
+  }
+
+  _createClass(World, [{
+    key: "createRoom",
+    value: function createRoom(roomName) {
+      var room = new _Room.Room(roomName);
+      this.rooms.push(room);
+      return room;
+    }
+    /**
+     * Add a connection between room1 and room2
+     * @returns {Player} the created player
+     */
+
+  }, {
+    key: "createPlayer",
+    value: function createPlayer() {
+      if (this.rooms.length === 0) {
+        throw new Error('The world needs to have at least one room for the player to start');
+      }
+
+      var player = new _Player.Player(this.rooms[0]);
+      this.player = player;
+      return player;
+    }
+  }]);
+
+  return World;
+}();
+
+exports.World = World;
+},{"./Player":"Game/Player.js","./Room":"Game/Room.js"}],"index.js":[function(require,module,exports) {
+"use strict";
+
+var _World = require("./Game/World");
+
+function main() {
+  var world = new _World.World('World');
+  var room1 = world.createRoom('room1');
+  var room2 = world.createRoom('room2');
+  var player = world.createPlayer();
+  room1.addConnection(room2, function () {
+    return 'Hola moved to room 2 from room 1';
+  });
+  room2.addConnection(room1, function () {
+    return 'Hola moved to room 1 from room 2';
+  });
+  console.log(player.move(room2));
+  console.log(player.currentRoom);
+}
+
+void main();
+},{"./Game/World":"Game/World.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -147,7 +337,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "35479" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "43511" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

@@ -35,14 +35,4 @@ export class World {
 
 		return player
 	}
-
-	/**
-	 * Add a connection between room1 and room2
-	 * @param {Room} room1 
-	 * @param {Room} room2 
-	 * @param {(world: World, room1: Room, room2: Room, player: Player) => boolean} validator 
-	 */
-	addConnection(room1, room2, validator) {
-		room1.addConnection(room2, () => validator(this, room1, room2, this.player))
-	}
 }

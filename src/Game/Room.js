@@ -1,6 +1,6 @@
 export class Room {
 	/**
-	 * @type {{room: Room, validator: () => boolean}[]}
+	 * @type {{room: Room, validator: () => string}[]}
 	 */
 	roomConnections = []
 
