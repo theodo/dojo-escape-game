@@ -1,20 +1,20 @@
 export class Room {
-	/**
-	 * @type {{room: Room, validator: () => string}[]}
-	 */
-	roomConnections = []
+  /**
+   * @type {{room: Room, validator: () => string}[]}
+   */
+  roomConnections = []
 
-	constructor(name) {
-		/**
-		 * @type {string}
-		 */
-		this.name = name
-	}
+  constructor(name) {
+    /**
+     * @type {string}
+     */
+    this.name = name
+  }
 
-	addConnection(room, validator) {
-		this.roomConnections.push({
-			room,
-			validator
-		})
-	}
+  addConnection(room, validator) {
+    this.roomConnections.push({
+      room,
+      validator,
+    })
+  }
 }
