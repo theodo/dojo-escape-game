@@ -16,8 +16,11 @@ export class World {
     this.name = name
   }
 
-  createRoom(roomName) {
-    const room = new Room(roomName)
+  /**
+   * @param {Object} roomConfiguration - this is the room configuration
+   */
+  createRoom(roomConfiguration) {
+    const room = new Room(roomConfiguration)
     this.rooms.push(room)
     return room
   }

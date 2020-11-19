@@ -1,10 +1,11 @@
 import { World } from './Game/World'
+import { drawMap } from './Interface/Map'
 
 function main() {
   const world = new World('World')
 
-  const room1 = world.createRoom('room1')
-  const room2 = world.createRoom('room2')
+  const room1 = world.createRoom({ name: 'room1' })
+  const room2 = world.createRoom({ name: 'room2', xPos: 1, yPos: 0 })
 
   const player = world.createPlayer()
 
@@ -16,6 +17,7 @@ function main() {
     return 'Hola moved to room 1 from room 2'
   })
 
+  drawMap(world)
   console.log(player.move(room2))
   console.log(player.currentRoom)
 }
