@@ -3,11 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Escape game</title>
+    <link href="./assets/sanitize.css" rel="stylesheet" />
   </head>
   <body>
-    <h1>Document</h1>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <noscript>
+      <h1>You need to enable JavaScript to run this app.</h1>
+    </noscript>
+    <div class="app-container">
+      <h1>Escape game</h1>
+      <canvas id="map"
+        >If you see this you need a compatible browser, try Firefox,
+        Chrome</canvas
+      >
+      <p id="text">John Doe</p>
+    </div>
+
     <script type="module" src="./index.js"></script>
+    <link href="./index.css" rel="stylesheet" />
   </body>
 </html>
