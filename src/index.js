@@ -1,5 +1,5 @@
 import { World } from './Game/World'
-
+import { say } from './Interface/Text'
 function main() {
   const world = new World('World')
 
@@ -17,8 +17,9 @@ function main() {
   })
 
   setTimeout(() => {
+    say(`Hi ${player.name}`)
     setInterval(() => {
-      player.move(player.currentRoom === room1 ? room2 : room1)
+      say(player.move(player.currentRoom === room1 ? room2 : room1))
     }, 1500)
   }, 500)
 }
