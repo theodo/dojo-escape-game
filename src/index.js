@@ -6,14 +6,14 @@ function main() {
   const room1 = world.createRoom({ name: 'room1', height: 2 })
   const room2 = world.createRoom({ name: 'room2', xPos: 1, height: 2 })
 
-  const player = world.createPlayer()
+  const player = world.createPlayer('John Doe')
 
   room1.addConnection(room2, () => {
-    return 'Hola moved to room 2 from room 1'
+    return `${player.name} moved to room 2 from room 1`
   })
 
   room2.addConnection(room1, () => {
-    return 'Hola moved to room 1 from room 2'
+    return `${player.name} moved to room 1 from room 2`
   })
 
   setTimeout(() => {
