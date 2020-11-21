@@ -1,14 +1,18 @@
 import { Room } from './Room'
+import { drawPlayer, erasePlayer } from '../Interface/Map'
 
 /**
  *
  */
 export class Player {
-  constructor(room) {
-    /**
-     * @type {Room} the room where the player is
-     */
+  /**
+   * Create a player
+   * @param {Room} room the initial room where the player is
+   * @param {string} name the player name
+   */
+  constructor(room, name) {
     this.currentRoom = room
+    this.name = name
   }
 
   /**
@@ -25,7 +29,9 @@ export class Player {
 
     try {
       const message = roomConnection.validator()
+      erasePlayer(this)
       this.currentRoom = roomConnection.room
+      drawPlayer(this)
       return message
     } catch (error) {
       return error
