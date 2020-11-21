@@ -1,5 +1,4 @@
 import { World } from './Game/World'
-import { drawMap } from './Interface/Map'
 
 function main() {
   const world = new World('World')
@@ -17,9 +16,11 @@ function main() {
     return 'Hola moved to room 1 from room 2'
   })
 
-  drawMap(world)
-  console.log(player.move(room2))
-  console.log(player.currentRoom)
+  setTimeout(() => {
+    setInterval(() => {
+      player.move(player.currentRoom === room1 ? room2 : room1)
+    }, 1500)
+  }, 500)
 }
 
 void main()

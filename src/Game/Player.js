@@ -1,4 +1,5 @@
 import { Room } from './Room'
+import { drawPlayer, erasePlayer } from '../Interface/Map'
 
 /**
  *
@@ -25,7 +26,9 @@ export class Player {
 
     try {
       const message = roomConnection.validator()
+      erasePlayer(this)
       this.currentRoom = roomConnection.room
+      drawPlayer(this)
       return message
     } catch (error) {
       return error

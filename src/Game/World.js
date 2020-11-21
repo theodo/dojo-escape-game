@@ -1,5 +1,6 @@
 import { Player } from './Player'
 import { Room } from './Room'
+import { drawRoom, drawPlayer } from '../Interface/Map'
 
 export class World {
   /**
@@ -22,6 +23,7 @@ export class World {
   createRoom(roomConfiguration) {
     const room = new Room(roomConfiguration)
     this.rooms.push(room)
+    drawRoom(room)
     return room
   }
 
@@ -37,7 +39,7 @@ export class World {
     }
     const player = new Player(this.rooms[0])
     this.player = player
-
+    drawPlayer(player)
     return player
   }
 }
