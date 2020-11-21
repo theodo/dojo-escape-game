@@ -11,4 +11,4 @@ parcelRequire=function(e,r,t,n){var i,o="function"==typeof parcelRequire&&parcel
 },{}],"Focm":[function(require,module,exports) {
 "use strict";var o=require("./Game/World"),e=require("./Interface/Text");function n(){var n=new o.World("World"),r=n.createRoom({name:"room1",height:2}),t=n.createRoom({name:"room2",xPos:1,height:2}),a=n.createPlayer("John Doe");r.addConnection(t,function(){return"".concat(a.name," moved to room 2 from room 1")}),t.addConnection(r,function(){return"".concat(a.name," moved to room 1 from room 2")}),setTimeout(function(){(0,e.say)("Hi ".concat(a.name)),setInterval(function(){(0,e.say)(a.move(a.currentRoom===r?t:r))},1500)},500)}n();
 },{"./Game/World":"PDzX","./Interface/Text":"gRyZ"}]},{},["Focm"], null)
-//# sourceMappingURL=/src.5da793c1.js.map
+//# sourceMappingURL=src.5da793c1.js.map
