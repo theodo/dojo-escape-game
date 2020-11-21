@@ -1,19 +1,19 @@
 const canvasId = 'map'
-const horizontalScaling = 50
-const verticalScaling = 50
+const horizontalScaling = 150
+const verticalScaling = 150
 
 const mapCanvas = document.getElementById(canvasId)
 const mapContext = mapCanvas.getContext('2d')
 /**
- * @param {Room} room - The room to link to the current room
+ * @param {Room} room - The room to draw
  */
 const drawRoom = (room) => {
   mapContext.fillStyle = room.color
   mapContext.fillRect(
     room.xPos * horizontalScaling,
     room.yPos * verticalScaling,
-    room.height * verticalScaling,
-    room.width * horizontalScaling
+    room.width * horizontalScaling,
+    room.height * verticalScaling
   )
 }
 

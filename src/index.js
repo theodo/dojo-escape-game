@@ -4,8 +4,8 @@ import { drawMap } from './Interface/Map'
 function main() {
   const world = new World('World')
 
-  const room1 = world.createRoom({ name: 'room1' })
-  const room2 = world.createRoom({ name: 'room2', xPos: 1, yPos: 0 })
+  const room1 = world.createRoom({ name: 'room1', height: 2 })
+  const room2 = world.createRoom({ name: 'room2', xPos: 1, height: 2 })
 
   const player = world.createPlayer()
 
