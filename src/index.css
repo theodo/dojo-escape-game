@@ -10,14 +10,77 @@ body {
   text-align: center;
 }
 
+.interface {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  flex-direction: row;
+  align-items: flex-start;
+}
+.primary-container {
+  word-wrap: normal;
+  width: 400px;
+}
+
+.secondary-container {
+  margin-top: 11rem;
+  margin-left: 4rem;
+  text-align: left;
+  flex: 1 0 50%;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+}
+
+.action-button {
+  padding: 0.35rem 1.2rem;
+  border: 0.1rem solid white;
+  margin: 0 0.3rem 0.3rem 0;
+  border-radius: 0.12rem;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: sans-serif;
+  font-weight: 300;
+  color: white;
+  text-align: center;
+  transition: all 0.3s;
+  background-color: transparent;
+}
+
+.action-button:hover {
+  color: #000000;
+  background-color: white;
+}
+.action-button + .action-button {
+  margin-top: 1rem;
+}
 #map {
   border: 1px solid white;
 }
 
-h1 {
+.title {
   font-size: 3rem;
+  margin: 4rem;
 }
 
-p {
+.speak {
   font-size: 1.5rem;
+  margin: 2rem;
+}
+
+/* mobile overrides */
+@media only screen and (max-width: 50rem) {
+  .interface {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .secondary-container {
+    margin-top: 2rem;
+    margin-left: 0;
+    text-align: center;
+  }
 }
