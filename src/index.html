@@ -9,12 +9,21 @@
   <body>
     <noscript> You need to enable JavaScript to run this app. </noscript>
     <div class="app-container">
-      <h1>Escape game</h1>
-      <canvas id="map" height="300" width="300"
-        >If you see this you need a compatible browser, try Firefox,
-        Chrome</canvas
-      >
-      <p id="text"></p>
+      <div class="interface">
+        <div class="primary-container">
+          <h1 class="title">Escape game</h1>
+
+          <canvas id="map" height="300" width="300"
+            >If you see this you need a compatible browser, try Firefox,
+            Chrome</canvas
+          >
+          <p class="speak" id="text"></p>
+        </div>
+        <div class="secondary-container">
+          <h2>Actions</h2>
+          <div class="actions" id="actions"></div>
+        </div>
+      </div>
     </div>
 
     <script type="module" src="./index.js"></script>
