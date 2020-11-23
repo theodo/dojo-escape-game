@@ -5,11 +5,6 @@ import { drawRoom } from '../Interface/Map'
 
 export class Room {
   /**
-   * @type {{room: Room, validator: () => string}[]}
-   */
-  roomConnections = []
-
-  /**
    * @param {Object} roomConfiguration - this is the room configuration
    * @param {string} roomConfiguration.name - the name of the room
    * @param {number} roomConfiguration.height - room height
@@ -33,16 +28,5 @@ export class Room {
   updateColor(color) {
     this.color = color ? color : randomColor()
     drawRoom(this)
-  }
-
-  /**
-   * @param {Room} room - The room to link to the current room
-   * @param {() => string} validator - the validation function to authorize usage of the connection
-   */
-  addConnection(room, validator) {
-    this.roomConnections.push({
-      room,
-      validator,
-    })
   }
 }

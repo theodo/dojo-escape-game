@@ -6,13 +6,13 @@ import { Action } from '../Game/Action'
  * Add an action to the interface
  * @param {Action} action action to register
  */
-export const addAction = ({ actionText, actionCallback, identifier }) => {
+export const addAction = ({ text, callback, identifier }) => {
   const actionElement = document.createElement('button')
   Object.assign(actionElement, {
     classList: ['action-button'],
-    onclick: actionCallback,
+    onclick: callback,
     id: identifier,
-    innerHTML: actionText,
+    innerHTML: text,
   })
   actionsElement.append(actionElement)
 }

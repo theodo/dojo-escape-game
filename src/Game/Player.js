@@ -21,23 +21,8 @@ export class Player {
    * @param {Room} wantedRoom
    */
   move(wantedRoom) {
-    const roomConnection = this.currentRoom.roomConnections.find(
-      (connection) => connection.room === wantedRoom
-    )
-    if (roomConnection === undefined) {
-      throw 'The room you want is not in the good range'
-    }
-
-    try {
-      const message = roomConnection.validator()
-      erasePlayer(this)
-      this.currentRoom = roomConnection.room
-      drawPlayer(this)
-      say(message)
-      return message
-    } catch (validatorError) {
-      say(validatorError.message)
-      return validatorError
-    }
+    erasePlayer(this)
+    this.currentRoom = wantedRoom
+    drawPlayer(this)
   }
 }
