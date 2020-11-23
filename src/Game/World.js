@@ -28,7 +28,7 @@ export class World {
   }
 
   /**
-   * Add a connection between room1 and room2
+   * Create a new player
    * @param {string} name the player name
    * @returns {Player} the created player
    */
