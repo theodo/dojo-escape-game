@@ -17,59 +17,61 @@ const main = () => {
 
   const player = world.createPlayer('John Doe')
 
-  const moveToRoom1 = new MoveAction(
+  new MoveAction(
     {
       text: 'Move to room 1',
-      callback: () => {
-        addAction(moveToRoom2)
-      },
+      isEnabled: () => player.currentRoom === room2,
+      world,
     },
     player,
     room1
   )
 
-  const moveToRoom2 = new MoveAction(
-    {
-      text: 'Move to room 2',
-      callback: () => {
-        addAction(moveToRoom1)
-        if (room3.color === 'black') addAction(searchTheRoom)
-        else addAction(moveToRoom3)
-      },
-    },
-    player,
-    room2
-  )
-
-  const moveToRoom3 = new MoveAction(
+  new MoveAction(
     {
       text: 'Move to room 3',
-      callback: () => {
-        setTimeout(() => {
-          say(`${player.name} found the exit 🎉`)
-        }, 1200)
-      },
+      callback: () =>
+        new Promise((resolve) => {
+          setTimeout(() => {
+            say(`${player.name} found the exit 🎉`)
+          }, 1200)
+          resolve()
+        }),
+      isEnabled: () => player.currentRoom === room2 && room3.color !== 'black',
+      world,
     },
     player,
     room3
   )
 
-  const searchTheRoom = new Action({
+  new Action({
     text: 'Search the room with care',
-    callback: () => {
-      say(`${player.name} searches the room ...`)
-      setTimeout(() => {
-        say(`${player.name} found a little trap door to another room`)
-        addAction(moveToRoom1)
-        addAction(moveToRoom3)
-        room3.updateColor()
-      }, 1200)
-    },
+    callback: () =>
+      new Promise((resolve) => {
+        say(`${player.name} searches the room ...`)
+        setTimeout(() => {
+          say(`${player.name} found a little trap door to another room`)
+          room3.updateColor()
+          resolve()
+        }, 3000)
+      }),
+    isEnabled: () => player.currentRoom === room2 && room3.color === 'black',
+    world,
   })
 
   setTimeout(() => {
     say(`${player.name} wakes up.`)
-    addAction(moveToRoom2)
+    addAction(
+      new MoveAction(
+        {
+          text: 'Move to room 2',
+          isEnabled: () => player.currentRoom === room1,
+          world,
+        },
+        player,
+        room2
+      )
+    )
   }, 1200)
 }
 

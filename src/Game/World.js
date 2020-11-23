@@ -1,12 +1,18 @@
 import { Player } from './Player'
 import { Room } from './Room'
 import { drawRoom, drawPlayer } from '../Interface/Map'
+import { Action } from './Action'
 
 export class World {
   /**
    * @type {Room[]}
    */
   rooms = []
+
+  /**
+   * @type {Action[]}
+   */
+  actions = []
 
   /**
    * @type {Player | undefined}
@@ -25,6 +31,14 @@ export class World {
     this.rooms.push(room)
     drawRoom(room)
     return room
+  }
+
+  /**
+   * Add a connection between room1 and room2
+   * @param {Action} action the action
+   */
+  addAction(action) {
+    this.actions.push(action)
   }
 
   /**
