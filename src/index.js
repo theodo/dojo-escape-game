@@ -29,13 +29,13 @@ const main = () => {
   })
 
   const moveToRoom1 = new Action('Move to room 1', () => {
-    say(player.move(room1))
+    player.move(room1)
     clearActions()
     addAction(moveToRoom2)
   })
 
   const moveToRoom2 = new Action('Move to room 2', () => {
-    say(player.move(room2))
+    player.move(room2)
     clearActions()
     addAction(moveToRoom1)
     if (room3.color === 'black') addAction(searchTheRoom)
@@ -43,7 +43,7 @@ const main = () => {
   })
 
   const moveToRoom3 = new Action('Move to room 3', () => {
-    say(player.move(room3))
+    player.move(room3)
     clearActions()
     setTimeout(() => {
       say(`${player.name} found the exit 🎉`)
