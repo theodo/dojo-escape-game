@@ -14,6 +14,7 @@ const main = () => {
     yPos: 1,
     color: 'black',
   })
+
   const player = world.createPlayer('John Doe')
 
   room1.addConnection(room2, () => {

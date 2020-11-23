@@ -4,6 +4,7 @@ const playerSize = 1 / 10
 
 const mapCanvas = document.getElementById(canvasId)
 const mapContext = mapCanvas.getContext('2d')
+
 /**
  * @param {Room} room - The room to draw
  */
