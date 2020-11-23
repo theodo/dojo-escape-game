@@ -1,7 +1,7 @@
 import { World } from './Game/World'
 import { Action, MoveAction } from './Game/Action'
 import { say } from './Interface/Text'
-import { addAction, clearActions } from './Interface/Action'
+import { addAction } from './Interface/Action'
 
 const main = () => {
   const world = new World('World')
@@ -58,7 +58,6 @@ const main = () => {
     text: 'Search the room with care',
     callback: () => {
       say(`${player.name} searches the room ...`)
-      clearActions()
       setTimeout(() => {
         say(`${player.name} found a little trap door to another room`)
         addAction(moveToRoom1)

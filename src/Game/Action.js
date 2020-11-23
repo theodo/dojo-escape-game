@@ -13,7 +13,10 @@ export class Action {
    */
   constructor({ text, callback }) {
     this.text = text
-    this.callback = callback
+    this.callback = () => {
+      clearActions()
+      callback()
+    }
     this.identifier = randomId()
   }
 }
@@ -29,7 +32,6 @@ export class MoveAction extends Action {
     super({
       ...actionConfig,
       callback: () => {
-        clearActions()
         player.move(wantedRoom)
         say(`${player.name} moves to ${wantedRoom.name}`)
         actionConfig.callback()
