@@ -26,29 +26,15 @@ npm --version
 
 ### Creation du repo
 
-Pour pouvoir publier ton projet sur github pages:
+Pour te faciliter la vie ce repo est un template, il te suffit de cliquer sur le bouton **Deploy to netlify** pour créer un repo à partir de ce boilerplate:
 
-- Tu dois simplement créer un repo git.
-- N'initialise pas ton repo, récupère juste l'origine git.
-- Utilise ce boilerplate: `npx degit theodo/dojo-escape-game <nom-de-ton-repo>` et rends toi dans le dossier `cd <nom-de-ton-repo>`.
-- Initialise ton repo git:
+<a href="https://app.netlify.com/start/deploy?repository=https://github.com/theodo/dojo-escape-game"><img src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy to Netlify"></a>
 
-```bash
-git init
-# Identifie toi à git si nécessaire https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup
-git remote add origin https://github.com/<user>/<nom-de-ton-repo>.git # ou en ssh : git remote add origin git@github.com:<user>/<nom-de-ton-repo>.git
-git add .
-git commit -m "initial commit"
-git push
-```
+Tu vas devoir te créer un compte avec netlify (les quotas gratuit pour développeurs sont très généreux), tu peux utiliser ton compte github comme single sign-on.
 
-### Publier sur Github pages
+Une fois fait, tu auras un repo pour le projet et ton site sera déployé automatiquement sur netlify à chaque fois que tu push des changement sur master.
 
-Pour finir, il faut configurer githubpages pour utiliser le dossier `dist/` du repo git, que l'on commitera lorsque l'on veut faire une version de la page web.
-
-On va utiliser une branche spécifique `gh-pages`, utilise `npm run deploy` pour synchroniser le dossier _dist_ sur la branche `gh-pages`.
-
-Le boilerplate devrait être disponible sur `https://<user>.github.io/<nom-de-ton-repo>` d'ici maximum 10min pour le premier déploiement.
+Tu peux maintenant cloner ton repo localement pour commencer à développer.
 
 ### Développer
 
@@ -68,19 +54,7 @@ npm start
 
 ### Publier une version
 
-Une fois qu'une version locale est satisfaisante, il suffit de lancer :
-
-```bash
-npm run build
-```
-
-Le site va alors être généré et il suffit alors de commit les changements (en incluant dist) et de les pousser sur github pour mettre à jour le site en ligne 🎉 :
-
-```bash
-git add dist && git commit && npm run deploy
-```
-
-Ainsi la branche _gh-pages_ est reconnu automatiquement par github et servira de source pour servir le site.
+Avec l'integration netlify, il te suffit de pousser des changements sur la branche master de ton repo github pour deployer la nouvelle version.
 
 ## Structure
 
