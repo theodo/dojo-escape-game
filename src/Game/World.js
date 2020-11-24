@@ -28,7 +28,7 @@ export class World {
    * @private
    * @param {()=>Promise<void> | undefined} callback to do on action click
    */
-  wrapCallback(callback) {
+  wrapCallbackForAutomaticActionsDisplay(callback) {
     return () => {
       clearActions()
       return (callback ? callback() : Promise.resolve(null))
@@ -60,9 +60,11 @@ export class World {
     const action = new Action({
       ...actionConfig,
       world: this,
-      callback: this.wrapCallback(actionConfig.callback),
+      callback: this.wrapCallbackForAutomaticActionsDisplay(
+        actionConfig.callback
+      ),
     })
-    this.addAction(action)
+    this.actions.push(action)
     return action
   }
 
@@ -79,21 +81,15 @@ export class World {
       {
         ...actionConfig,
         world: this,
-        callback: this.wrapCallback(actionConfig.callback),
+        callback: this.wrapCallbackForAutomaticActionsDisplay(
+          actionConfig.callback
+        ),
       },
       this.player,
       wantedRoom
     )
-    this.addAction(action)
-    return action
-  }
-
-  /**
-   * Add a connection between room1 and room2
-   * @param {Action} action the action
-   */
-  addAction(action) {
     this.actions.push(action)
+    return action
   }
 
   /**
