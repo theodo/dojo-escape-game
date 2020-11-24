@@ -1,21 +1,29 @@
 const actionId = 'actions'
 const actionsElement = document.getElementById(actionId)
 import { Action } from '../Game/Action'
+import { World } from '../Game/World'
 
 /**
  * Add an action to the interface
  * @param {Action} action action to register
  */
-export const addAction = ({ actionText, actionCallback, identifier }) => {
+export const addAction = ({ text, callback, identifier }) => {
   const actionElement = document.createElement('button')
   Object.assign(actionElement, {
     classList: ['action-button'],
-    onclick: actionCallback,
+    onclick: callback,
     id: identifier,
-    innerHTML: actionText,
+    innerHTML: text,
   })
   actionsElement.append(actionElement)
 }
+
+/**
+ * Add all enabled action for current state
+ * @param {World} world
+ */
+export const addEnabledActions = (world) =>
+  world.actions.forEach((action) => action.isEnabled() && addAction(action))
 
 /**
  * Remove an action from the interface
