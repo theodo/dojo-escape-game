@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "parcel src/index.html --out-dir build/",
     "prebuild": "rm -rf dist && mkdir dist && touch dist/.nojekyll",
-    "build": "parcel build src/index.html --out-dir dist/ --public-url .",
+    "build": "parcel build src/index.html --out-dir dist/ --no-source-maps --public-url .",
     "lint:format": "prettier --write src",
     "deploy": "git subtree push --prefix dist origin gh-pages"
   },
