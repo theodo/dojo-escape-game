@@ -1,28 +1,5 @@
 # Dojo Escape Game
 
-- Installation de Node (JeremieC)
-- Boilerplate avec hot reload (JeremieC)
-- Doc sur mettre sa page sur github pages (JeremieC)
-
-- Classe Monde qui gere les salles et la position du joueur
-- Classe Salle abstraite
-
-Criteres qu'on veut voir:
-
-- Avoir une carte qui montre les possibilités de deplacement (carte en canvas)
-- Inventaire perso
-- Objets dans la salle
-- Mouvements validés par des conditions
-- Le joueur doit avoir un nom
-- Feedback sur les actions
-- Jeu est gagné si le joueur sort et a un feedback sur le fait de gagner
-
-Criteres techniques:
-
-Des choses qu'on aimerait voir:
-
-- A vous de voir ...
-
 ## Prérequis
 
 Tu as besoin de nodejs et npm :
@@ -98,3 +75,28 @@ git add dist && git commit && npm run deploy
 ```
 
 Ainsi la branche _gh-pages_ est reconnu automatiquement par github et servira de source pour servir le site.
+
+## Structure
+
+La page est un simple fichier HTML : `src/index.html`.
+
+Le scenario de l'escape game est décris dans `src/index.js`. Il utilise le moteur du jeu dans `src/Game/` et l'interface `src/Interface/` pour expliciter le comportement du jeu.
+
+## Critères
+
+### Requis
+
+Les fonctionnalités suivantes sont attendus:
+
+- Avoir une carte qui montre les possibilités de déplacement
+- Inventaire pour le joueur
+- Objets dans la salle
+- Mouvements validés par des conditions
+- Personnalisation du nom du joueur
+- Jeu est gagné si le joueur sort et a un feedback sur le fait de gagner
+
+### Evaluation
+
+- L'escape game sera tout d'abord évalué sur la qualité de l'expérience du jeu (design, scenario)
+- Le jeu est [accessible](https://developer.mozilla.org/fr/docs/Apprendre/a11y/What_is_accessibility) et jouable au moins au clavier.
+- Puis sur la qualité de l'implémentation technique, tel que la lisibilité du code, la clarté de l'intention (en particulier dans le code du scenario).
