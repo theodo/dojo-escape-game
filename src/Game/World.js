@@ -62,7 +62,7 @@ export class World {
       world: this,
       callback: this.wrapCallback(actionConfig.callback),
     })
-    this.addAction(action)
+    this.actions.push(action)
     return action
   }
 
@@ -84,16 +84,8 @@ export class World {
       this.player,
       wantedRoom
     )
-    this.addAction(action)
-    return action
-  }
-
-  /**
-   * Add a connection between room1 and room2
-   * @param {Action} action the action
-   */
-  addAction(action) {
     this.actions.push(action)
+    return action
   }
 
   /**
