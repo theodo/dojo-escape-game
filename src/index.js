@@ -1,5 +1,4 @@
 import { World } from './Game/World'
-import { Action, MoveAction } from './Game/Action'
 import { say } from './Interface/Text'
 import { addAction } from './Interface/Action'
 
@@ -17,17 +16,15 @@ const main = () => {
 
   const player = world.createPlayer('John Doe')
 
-  new MoveAction(
+  world.createMoveAction(
     {
       text: 'Move to room 1',
       isEnabled: () => player.currentRoom === room2,
-      world,
     },
-    player,
     room1
   )
 
-  new MoveAction(
+  world.createMoveAction(
     {
       text: 'Move to room 3',
       callback: () =>
@@ -38,13 +35,11 @@ const main = () => {
           resolve()
         }),
       isEnabled: () => player.currentRoom === room2 && room3.color !== 'black',
-      world,
     },
-    player,
     room3
   )
 
-  new Action({
+  world.createAction({
     text: 'Search the room with care',
     callback: () =>
       new Promise((resolve) => {
@@ -56,19 +51,17 @@ const main = () => {
         }, 3000)
       }),
     isEnabled: () => player.currentRoom === room2 && room3.color === 'black',
-    world,
   })
 
   setTimeout(() => {
     say(`${player.name} wakes up.`)
     addAction(
-      new MoveAction(
+      world.createMoveAction(
         {
           text: 'Move to room 2',
           isEnabled: () => player.currentRoom === room1,
           world,
         },
-        player,
         room2
       )
     )

@@ -1,7 +1,8 @@
 import { Player } from './Player'
 import { Room } from './Room'
 import { drawRoom, drawPlayer } from '../Interface/Map'
-import { Action } from './Action'
+import { Action, MoveAction } from './Action'
+import { clearActions, addEnabledActions } from '../Interface/Action'
 
 export class World {
   /**
@@ -24,6 +25,21 @@ export class World {
   }
 
   /**
+   * @private
+   * @param {()=>Promise<void> | undefined} callback to do on action click
+   */
+  wrapCallback(callback) {
+    return () => {
+      clearActions()
+      return (callback ? callback() : Promise.resolve(null))
+        .then(() => {
+          addEnabledActions(this)
+        })
+        .catch(console.error)
+    }
+  }
+
+  /**
    * @param {Object} roomConfiguration - this is the room configuration
    */
   createRoom(roomConfiguration) {
@@ -31,6 +47,45 @@ export class World {
     this.rooms.push(room)
     drawRoom(room)
     return room
+  }
+
+  /**
+   * Create an action
+   * @param {Object} actionConfig the action config
+   * @param {string} actionConfig.text the action text
+   * @param {()=>void | undefined} actionConfig.isEnabled evaluated after each action for action availability, if undefined the action is not automatically enabled
+   * @param {()=>Promise<void> | undefined} actionConfig.callback to do on action click
+   */
+  createAction(actionConfig) {
+    const action = new Action({
+      ...actionConfig,
+      world: this,
+      callback: this.wrapCallback(actionConfig.callback),
+    })
+    this.addAction(action)
+    return action
+  }
+
+  /**
+   * Create a move action
+   * @param {Object} actionConfig the action config
+   * @param {string} actionConfig.text the action text
+   * @param {()=>void | undefined} actionConfig.isEnabled evaluated after each action for action availability, if undefined the action is not automatically enabled
+   * @param {()=>Promise<void> | undefined} actionConfig.callback to do on action click
+   * @param {Room} wantedRoom the room to move to
+   */
+  createMoveAction(actionConfig, wantedRoom) {
+    const action = new MoveAction(
+      {
+        ...actionConfig,
+        world: this,
+        callback: this.wrapCallback(actionConfig.callback),
+      },
+      this.player,
+      wantedRoom
+    )
+    this.addAction(action)
+    return action
   }
 
   /**
