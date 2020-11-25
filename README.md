@@ -36,6 +36,8 @@ Une fois fait, tu auras un repo pour le projet et ton site sera déployé automa
 
 ![Déploiement sur netlify](deploy_to_netlify.png)
 
+Dernière chose à faire changer la visibilité de ton repo en privé dans les settings.
+
 Tu peux maintenant cloner ton repo localement pour commencer à développer.
 
 ### Développer
