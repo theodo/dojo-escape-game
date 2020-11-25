@@ -32,13 +32,15 @@ Pour te faciliter la vie ce repo est un template, il te suffit de cliquer sur le
 
 Tu vas devoir te créer un compte avec netlify (les quotas gratuit pour développeurs sont très généreux), tu peux utiliser ton compte github comme single sign-on.
 
-Une fois fait, tu auras un repo pour le projet et ton site sera déployé automatiquement sur netlify à chaque fois que tu push des changement sur master.
+Une fois fait, tu auras un repo perso pour le projet et ton site sera déployé automatiquement sur netlify à chaque fois que tu push des changement sur la branche master.
 
 ![Déploiement sur netlify](deploy_to_netlify.png)
 
-Dernière chose à faire changer la visibilité de ton repo en privé dans les settings.
+Le lien de ton site s'affiche sur netlify. Ie: https://<NOM_RANDOM>.netlify.app.
 
-Tu peux maintenant cloner ton repo localement pour commencer à développer.
+Dernière chose à faire changer la visibilité de ton repo en privé dans les settings. C'est pour éviter que d'autres ne te volent ton code 😈 !
+
+Tu peux maintenant cloner ton repo localement pour commencer à développer. Pour le trouver, il faut aller dans tes repos personnels Github puis trouver `dojo-escape-game`.
 
 ### Développer
 
@@ -95,3 +97,7 @@ NB: Les fonctionnalités _ne sont pas_ triées par ordre de difficulté 😜
 ### Evaluation Finale
 
 Pour remporter le grand prix de ce défi 🥇, les escape game seront d'abord évalués sur l'experience de jeu et l'originalité du design et du scénario. La présence des fonctionnalités ci dessus seront alors pris en compte. Enfin, les meilleurs escape game seront soumis au vote par un jury de Theodoers experimentés.
+
+### Ligne d'arrivée 🥅
+
+Une fois terminé, tu peux nous envoyer ton jeu en mettant le lien Github de ton repo dans le channel Discord: #défi-accompli.
