@@ -40,7 +40,7 @@ Tu peux maintenant cloner ton repo localement pour commencer à développer.
 
 ### Développer
 
-Pour développer sur le projet, il reste à installer les outils qui vont transpiler les sources placées dans [src][./src] en un site web dans [dist](./dist) que github servira comme site web.
+Pour développer sur le projet, il reste à installer les outils qui vont transpiler les sources placées dans [src][./src] en un site web pour travailler localement.
 
 pour installer les outils nodejs, il suffit de faire:
 
