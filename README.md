@@ -2,7 +2,7 @@
 
 Bienvenu sur le défi Escape Game organisé par Theodo. Le but de ce challenge consiste à réaliser ton propre escape game en web 😯 ! Tu trouveras sur cette page toutes les informations nécéssaires pour le faire notamment les procédures d'installation du projet, comment le lancer en local sur ta machine et comment le déployer en production sur ton compte github 🥳 !
 
-Afin de pouvoir réaliser ce défi sereinement, nous avons codé un exemple d'escape game tout simple dans ce repo. Reutiliser le code de l'exemple n'est pas obligatoire bien que ca pourrait s'avérer utile ! 
+Afin de pouvoir réaliser ce défi sereinement, nous avons codé un exemple d'escape game tout simple dans ce repo. Reutiliser le code de l'exemple n'est pas obligatoire bien que ca pourrait s'avérer utile !
 
 En ce qui concerne le thème et le type d'escape game, le choix est libre ! Nous avons juste défini une liste de critères et de fonctionnalités qui pourraient servir à convaincre notre jury de la qualité de ton escape game.
 
@@ -33,6 +33,8 @@ Pour te faciliter la vie ce repo est un template, il te suffit de cliquer sur le
 Tu vas devoir te créer un compte avec netlify (les quotas gratuit pour développeurs sont très généreux), tu peux utiliser ton compte github comme single sign-on.
 
 Une fois fait, tu auras un repo pour le projet et ton site sera déployé automatiquement sur netlify à chaque fois que tu push des changement sur master.
+
+![Déploiement sur netlify](deploy_to_netlify.png)
 
 Tu peux maintenant cloner ton repo localement pour commencer à développer.
 
@@ -69,7 +71,7 @@ Le scenario de l'escape game est décris dans `src/index.js`. Il utilise le mote
 🚨 Les fonctionnalités suivantes sont attendues et obligatoires pour atteindre un jeu minimal. Une partie d'entre elles ont déjà été developpées dans l'exemple fourni dans ce repo: 🚨
 
 - Avoir une carte qui montre les possibilités de déplacement. Le joueur doit savoir dans quel 'pièce' il est sur la carte.
-- Inventaire pour le joueur. 
+- Inventaire pour le joueur.
 - Objets dans la salle. Le joueur doit pouvoir recuperer les objets de la salle pour les avoir dans son inventaire.
 - Mouvements validés par des conditions. Ces conditions peuvent porter sur n'importe quel élément du jeu comme par exemple: la pièce dans laquelle le joueur est actuellement ou son inventaire actuel.
 - Personnalisation du nom du joueur. Un joueur doit pouvoir entrer son nom en début de jeu pour le voir apparaitre au niveau du champ de texte.
