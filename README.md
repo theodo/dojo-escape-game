@@ -1,8 +1,14 @@
-# Dojo Escape Game
+# Challenge Dojo Escape Game
+
+Bienvenu sur le défi Escape Game organisé par Theodo. Le but de ce challenge consiste à réaliser ton propre escape game en web 😯 ! Tu trouveras sur cette page toutes les informations nécéssaires pour le faire notamment les procédures d'installation du projet, comment le lancer en local sur ta machine et comment le déployer en production sur ton compte github 🥳 !
+
+Afin de pouvoir réaliser ce défi sereinement, nous avons codé un exemple d'escape game tout simple dans ce repo. Reutiliser le code de l'exemple n'est pas obligatoire bien que ca pourrait s'avérer utile ! 
+
+En ce qui concerne le thème et le type d'escape game, le choix est libre ! Nous avons juste défini une liste de critères et de fonctionnalités qui pourraient servir à convaincre notre jury de la qualité de ton escape game.
 
 ## Prérequis
 
-Tu as besoin de nodejs et npm :
+Avant de commencer, tu as besoin de nodejs et npm, deux outils utilisés quasiment tout le temps à Theodo :
 
 ```bash
 node --version
@@ -14,7 +20,7 @@ npm --version
 # 6+
 ```
 
-[Si tu ne connais pas ces outils, tu peux suivre cette documentation NPM pour les installer](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
+[Si tu ne connais pas ces outils, tu peux suivre cette documentation NPM pour les installer sur ta machine](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
 
 ## Installation
 
@@ -86,17 +92,28 @@ Le scenario de l'escape game est décris dans `src/index.js`. Il utilise le mote
 
 ### Requis
 
-Les fonctionnalités suivantes sont attendus:
+🚨 Les fonctionnalités suivantes sont attendues et obligatoires pour atteindre un jeu minimal. Une partie d'entre elles ont déjà été developpées dans l'exemple fourni dans ce repo: 🚨
 
-- Avoir une carte qui montre les possibilités de déplacement
-- Inventaire pour le joueur
-- Objets dans la salle
-- Mouvements validés par des conditions
-- Personnalisation du nom du joueur
-- Jeu est gagné si le joueur sort et a un feedback sur le fait de gagner
+- Avoir une carte qui montre les possibilités de déplacement. Le joueur doit savoir dans quel 'pièce' il est sur la carte.
+- Inventaire pour le joueur. 
+- Objets dans la salle. Le joueur doit pouvoir recuperer les objets de la salle pour les avoir dans son inventaire.
+- Mouvements validés par des conditions. Ces conditions peuvent porter sur n'importe quel élément du jeu comme par exemple: la pièce dans laquelle le joueur est actuellement ou son inventaire actuel.
+- Personnalisation du nom du joueur. Un joueur doit pouvoir entrer son nom en début de jeu pour le voir apparaitre au niveau du champ de texte.
+- Le succès de l'escape game est defini et visualisé lors de la reussite
 
-### Evaluation
+### Elements qui rapportent des points
 
-- L'escape game sera tout d'abord évalué sur la qualité de l'expérience du jeu (design, scenario)
-- Le jeu est [accessible](https://developer.mozilla.org/fr/docs/Apprendre/a11y/What_is_accessibility) et jouable au moins au clavier.
-- Puis sur la qualité de l'implémentation technique, tel que la lisibilité du code, la clarté de l'intention (en particulier dans le code du scenario).
+Les fonctionnalités definies ci dessous améliorent l'experience de jeu 🎮 et ne sont pas obligatoires. Cependant, chaque fonctionnalité développée en plus sera très appréciée par nos joueurs 😎 !! (ETQJ = En tant que joueur 😀).
+
+- ETQJ, je peux decouvrir des salles seulement sous certaines conditions
+- ETQJ, je veux pouvoir voir des éléments rappelant le thème de l'escape game dans le background ⛱️
+- ETQJ, je veux voir les noms des salles directement sur la carte
+- ETQJ, je veux pouvoir jouer que avec mon clavier avec des instructions qui expliquent le role de chaque touche
+- ETQJ, je peux recommencer la partie à tout moment en cliquant sur un bouton
+- ETQJ, lorsque je refresh la page, je veux retrouver mon état du jeu tel que je l'ai laissé
+
+NB: Les fonctionnalités NE sont PAS triées par ordre de difficulté 😜
+
+### Evaluation Finale
+
+Pour remporter le grand prix de ce défi 🥇, les escape game seront d'abord évalués sur l'experience de jeu et l'originalité du design et du scénario. La présence des fonctionnalités ci dessus seront alors pris en compte. Enfin, les meilleurs escape game seront soumis au vote par un jury de Theodoers experimentés.

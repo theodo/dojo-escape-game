@@ -1,3 +1,7 @@
+import { Room } from '../Game/Room'
+import { Player } from '../Game/Player'
+import { World } from '../Game/World'
+
 const canvasId = 'map'
 const scaling = 150
 const playerSize = 1 / 10
