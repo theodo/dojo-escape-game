@@ -112,7 +112,7 @@ Les fonctionnalités definies ci dessous améliorent l'experience de jeu 🎮 et
 - ETQJ, je peux recommencer la partie à tout moment en cliquant sur un bouton
 - ETQJ, lorsque je refresh la page, je veux retrouver mon état du jeu tel que je l'ai laissé
 
-NB: Les fonctionnalités NE sont PAS triées par ordre de difficulté 😜
+NB: Les fonctionnalités _ne sont pas_ triées par ordre de difficulté 😜
 
 ### Evaluation Finale
 
