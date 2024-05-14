@@ -2,11 +2,10 @@
   "name": "dojo-escape-game",
   "version": "1.0.0",
   "description": "Le dojo escape game de Theodo",
-  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "parcel src/index.html --out-dir build/",
-    "build": "parcel build src/index.html --out-dir dist/ --no-source-maps --public-url .",
+    "start": "parcel src/index.html --dist-dir build/",
+    "build": "parcel build src/index.html --dist-dir dist/ --no-source-maps --public-url .",
     "lint:format": "prettier --write src"
   },
   "repository": {
@@ -21,7 +20,7 @@
   },
   "homepage": "https://github.com/theodo/dojo-escape-game#readme",
   "devDependencies": {
-    "parcel-bundler": "^1.12.4",
+    "parcel": "^2.12.0",
     "prettier": "2.1.2"
   }
 }
