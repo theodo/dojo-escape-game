@@ -91,3 +91,12 @@ Les fonctionnalités définies ci-dessous améliorent l'expérience de jeu 🎮 
 - ETQJ, je veux pouvoir jouer que avec mon clavier avec des instructions qui expliquent le rôle de chaque touche
 
 NB: Les fonctionnalités _ne sont pas_ triées par ordre de difficulté 😜
+
+## Pour commencer
+
+### Exemples
+
+Afin de te permettre de te projeter dans les différentes fonctionnalités techniques et de libérer ta créativité, tu peux accéder à deux escape game bâtis sur ce modèle :
+
+- Le premier [escape game en accès libre](https://elegant-sawine-9b39ee.netlify.app/) est focalisé sur la mise en place des fonctionnalités techniques (recommencer la partie, rafraîchir la page, navigation au clavier, etc).
+- Le second [escape game jouable](https://magical-pithivier-7d3fbd.netlify.app/) combine nombre de fonctionnalités techniques avec un design personnalisé et une histoire longue et prenante.
