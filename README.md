@@ -77,7 +77,7 @@ Le scénario de l'escape game est décrit dans `src/index.js`. Il utilise le mot
 - Le succès de l'escape game est défini et visualisé lors de la réussite ✅
 - Inventaire pour le joueur.
 - Objets dans la salle : le joueur doit pouvoir récupérer les objets de la salle pour les avoir dans son inventaire.
-- Mouvements validé par la présence d'un objet spécifique dans l'inventaire du joueur.
+- Mouvements validés par la présence d'un objet spécifique dans l'inventaire du joueur.
 - Personnalisation du nom : un joueur doit pouvoir entrer son nom en début de partie et le voir apparaître au niveau du champ de texte.
 
 ### Nice to have
@@ -91,3 +91,69 @@ Les fonctionnalités définies ci-dessous améliorent l'expérience de jeu 🎮 
 - ETQJ, je veux pouvoir jouer que avec mon clavier avec des instructions qui expliquent le rôle de chaque touche
 
 NB: Les fonctionnalités _ne sont pas_ triées par ordre de difficulté 😜
+
+## Pour commencer
+
+### Exemples
+
+Afin de te permettre de te projeter dans les différentes fonctionnalités techniques et de libérer ta créativité, tu peux accéder à deux escape game bâtis sur ce modèle :
+
+- Le premier [escape game en accès libre](https://elegant-sawine-9b39ee.netlify.app/) est focalisé sur la mise en place des fonctionnalités techniques (recommencer la partie, rafraîchir la page, navigation au clavier, etc).
+- Le second [escape game jouable](https://magical-pithivier-7d3fbd.netlify.app/) combine nombre de fonctionnalités techniques avec un design personnalisé et une histoire longue et prenante.
+
+### Pistes
+
+Un apprentissage a plus de valeur lorsqu'il a été fait en autonomie, par itérations successives. Mais rester bloqué apporte peu de valeur 🙃 Tu trouveras ci-dessous quelques conseils pour le développement des principales fonctionnalités. À utiliser avec parcimonie 😉
+
+<details>
+<summary>Inventaire pour le joueur</summary>
+Pour ajouter un inventaire, tu peux reprendre l'organisation du code existante pour les actions :
+
+- dans `/src/Game` avoir une classe `Inventory.js` qui contient l'état (ex. : objets présents dans l'inventaire) et la logique (ex. : méthode pour savoir si un objet est présent dans l'inventaire),
+- dans `/src/Interface` avoir une classe `Inventory.js` qui permet d'afficher l'inventaire en manipulant le HTML (en récupérant l'endroit prévu pour à l'aide de `document.getElementById()`).
+
+</details>
+
+<details>
+<summary>Mouvements validés par la présence d'un objet dans l'inventaire</summary>
+
+Dans la callback passée en argument à la méthode `world.createAction()`, ajoute une condition sur la présence de l'objet dans l'inventaire. Selon le booléen retourné retourne une callback différente.
+
+</details>
+
+<details>
+<summary>Personnalisation du nom</summary>
+Les possibilités pour cette fonctionnalités sont nombreuses !
+L'une d'entre elles consiste à ajouter une modale qui est affichée au début de la partie et dans laquelle le joueur inscrit son nom. Voici quelques astuces :
+
+- dans `index.css` tu peux jouer avec les propriétés suivantes :
+    - `display` : `block` ou `none` selon si tu souhaites afficher la modale ou non,
+    - `position` : `absolute` combinée avec `left` et `top` pour positionner la modale de façon absolue et `z-index` pour que la modale soit affichée au-dessus de l'écran de jeu,
+    - `width` et `height` pour dimensionner la modale,
+- le type `Player` peut être défini dans une classe à part, puis instancié dans la classe `World`.
+</details>
+
+<details>
+<summary>Recommencer la partie en cliquant sur un bouton</summary>
+
+Ici aussi différentes façon de procéder sont possibles. Dans tous les cas, n'oublie pas d'agir à la fois sur l'affichage (en utilisant par exemple la méthode `clearActions()`) et sur l'état stocké (en modifiant le champ `actions` de l'objet `World`).
+</details>
+
+<details>
+<summary>Après avoir refresh la page, retrouver le jeu dans l'état dans lequel on l'a laissé</summary>
+
+L'une des possibilités consiste à utiliser le stockage présent dans le navigateur pour conserver l'état du jeu. Tu peux utiliser le local storage ou le session storage selon tes besoins.
+
+Afin de stocker l'état actuel du jeu dans le local storage avant un refresh, tu peux écouter l'événement `beforeunload` de `window` et remplir le storage à ce moment-là.
+
+Puis en fonction de ce que tu récupères (ou non) dans le storage après le refresh, tu pourras initialiser le jeu différemment.
+</details>
+
+<details>
+<summary>Navigation uniquement au clavier</summary>
+
+Quelques astuces :
+- si tu as besoin de rendre accessible au clavier un élément qui ne l'est pas nativement, tu peux utiliser l'attribut `tabindex` dans ton HTML,
+- le focus peux être modifié à partir du fichier javascript en utilisant la méthode `.focus()`,
+- n'oublie pas de donner un retour visuel sur l'élément sélectionné à l'aide de la pseudo-classe `focus` dans ton CSS.
+</details>
