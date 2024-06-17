@@ -72,9 +72,9 @@ Le scénario de l'escape game est décrit dans `src/index.js`. Il utilise le mot
 
 🚨 Les fonctionnalités suivantes sont nécessaires pour atteindre un jeu minimal. Les 3 premières ont déjà été développées dans l'exemple fourni dans ce repo (tu n'auras donc besoin de les implémenter que si tu décides de ne pas repartir de l'exemple fourni) :
 
-- Avoir une carte qui montre les possibilités de déplacement. Le joueur doit savoir dans quelle 'pièce' il est sur la carte ✅ déjà développé dans l'exemple
-- Mouvements validés par des conditions. Ces conditions peuvent porter sur n'importe quel élément du jeu comme par exemple: la pièce dans laquelle le joueur est actuellement ✅ déjà développé dans l'exemple
-- Le succès de l'escape game est défini et visualisé lors de la réussite ✅ déjà développé dans l'exemple
+- Avoir une carte qui montre les possibilités de déplacement. Le joueur doit savoir dans quelle 'pièce' il est sur la carte ✅ (déjà développé dans l'exemple)
+- Mouvements validés par des conditions. Ces conditions peuvent porter sur n'importe quel élément du jeu comme par exemple: la pièce dans laquelle le joueur est actuellement ✅
+- Le succès de l'escape game est défini et visualisé lors de la réussite ✅
 - Inventaire pour le joueur.
 - Objets dans la salle : le joueur doit pouvoir récupérer les objets de la salle pour les avoir dans son inventaire.
 - Mouvements validé par la présence d'un objet spécifique dans l'inventaire du joueur.
