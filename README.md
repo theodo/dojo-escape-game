@@ -1,7 +1,7 @@
 <a name="top"></a>
 # Keiko Escape Game
 
-Bienvenue sur le Keiko[^1] Escape Game de Theodo. Le but de ce projet est de créer ton propre escape game en web 🧑‍💻 !
+Bienvenue sur le Keiko Escape Game de Theodo. Le but de ce projet est de créer ton propre escape game en web 🧑‍💻 !
 
 ℹ️ Pourquoi suivre ce keiko ?
 - Créer un site web dynamique en utilisant uniquement les briques élémentaires du web : HTML, CSS et JavaScript. Sans framework JavaScript tel que React, Angular ou Vue.js.
@@ -167,7 +167,5 @@ Quelques astuces :
 </details>
 
 <br>
-
-[^1] Keiko 稽古 : 稽 signifie <em>penser</em> et 古 signifie <em>ancien</em>. Keiko signifie ainsi : pratiquer avec pour objectif d'apprendre ou d'acquérir un savoir.
 
 [Revenir au début ⬆️](#top)
