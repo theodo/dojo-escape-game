@@ -1,6 +1,14 @@
+<a name="top"></a>
 # Keiko Escape Game
 
-Bienvenue sur le Keiko Escape Game de Theodo. Le but de ce projet est de créer ton propre escape game en web 😯 ! Tu trouveras sur cette page toutes les informations nécessaires pour le faire, notamment les procédures d'installation du projet, comment le lancer en local sur ta machine et comment le déployer en production avec ton compte github 🥳 !
+Bienvenue sur le Keiko Escape Game de Theodo. Le but de ce projet est de créer ton propre escape game en web 🧑‍💻 !
+
+ℹ️ Pourquoi suivre ce keiko ?
+- Créer un site web dynamique en utilisant uniquement les briques élémentaires du web : HTML, CSS et JavaScript. Sans framework JavaScript tel que React, Angular ou Vue.js.
+- Pouvoir ainsi réaliser un site web fonctionnel avec un minimum de connaissances techniques. Il est donc ouvert à celles et ceux qui souhaitent découvrir la programmation web, avec pour seuls prérequis d'avoir suivi une formation de base sur les trois langages utilisés (HTML, CSS et JavaScript).
+- Même si ce n'est pas son objectif initial, ce keiko pourra aussi intéresser les personnes ayant découvert le web à travers un framework JavaScript. Ne pas utiliser de framework permet de comprendre quelles sont les opérations de bas niveau qui sont abstraites par les fonctionnalités de haut niveau du framework. Cela permet alors de mieux maîtriser les frameworks et d'avoir une meilleure vision de la valeur qu'ils apportent.
+
+Tu trouveras sur cette page toutes les informations nécessaires pour le faire, notamment les procédures d'installation du projet, comment le lancer en local sur ta machine et comment le déployer en production avec ton compte github 🥳 !
 
 Afin de pouvoir réaliser ce projet sereinement, un exemple d'escape game tout simple a été codé dans ce repo. Même si réutiliser le code de l'exemple n'est pas obligatoire, ça pourrait s'avérer utile 😉
 
@@ -20,7 +28,7 @@ npm --version
 # 6+
 ```
 
-[Si tu ne connais pas ces outils, tu peux suivre cette documentation NPM pour les installer sur ta machine](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
+Si tu ne connais pas ces outils, tu peux suivre cette [documentation NPM pour les installer sur ta machine](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
 
 ## Installation
 
@@ -117,7 +125,7 @@ Pour ajouter un inventaire, tu peux reprendre l'organisation du code existante p
 <details>
 <summary>Mouvements validés par la présence d'un objet dans l'inventaire</summary>
 
-Dans la callback passée en argument à la méthode `world.createAction()`, ajoute une condition sur la présence de l'objet dans l'inventaire. Selon le booléen retourné retourne une callback différente.
+Dans la callback passée en argument à la méthode `world.createAction()`, ajoute une condition sur la présence de l'objet dans l'inventaire. Selon le booléen retourné par la condition, retourne une callback différente.
 
 </details>
 
@@ -157,3 +165,7 @@ Quelques astuces :
 - le focus peux être modifié à partir du fichier javascript en utilisant la méthode `.focus()`,
 - n'oublie pas de donner un retour visuel sur l'élément sélectionné à l'aide de la pseudo-classe `focus` dans ton CSS.
 </details>
+
+<br>
+
+[Revenir au début ⬆️](#top)
